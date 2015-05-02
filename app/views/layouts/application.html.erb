@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if  model_signed_in? %>
+  Welcome back!<%= current_model.name %>
+  <%= link_to "sign out", destroy_model_session_path,method:'delete' %>
+  <% else %>
+  <%= link_to "sign up", new_model_registration_path %>
+  <%= link_to "sign in",  new_model_session_path %>
+  	
+  <% end %>
+  	
+
 
 <%= yield %>
 
